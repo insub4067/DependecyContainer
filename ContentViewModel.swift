@@ -27,38 +27,3 @@ class ContentViewModel: ObservableObject {
     }
 }
 
-protocol Networkable {
-    func request()
-}
-
-struct Network: Networkable {
-    
-    func request() {
-        print("Request!")
-    }
-}
-
-struct FakeNetwork: Networkable {
-    
-    func request() {
-        print("Fake Request!")
-    }
-}
-
-protocol Repositoriable {
-    func fetch()
-}
-
-struct Repository: Repositoriable {
-    
-    func fetch() {
-        print("Fetch!")
-    }
-}
-
-struct FakeRepository: Repositoriable {
-    
-    func fetch() {
-        print("Fake Fetch!")
-    }
-}
