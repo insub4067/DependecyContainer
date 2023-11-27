@@ -9,14 +9,6 @@ import Foundation
 
 class DependencyContainer {
     
-    static let live = DependencyContainer()
-        .register(Network() as Networkable)
-        .register(Repository() as Repositoriable)
-    
-    static let mock = DependencyContainer()
-        .register(FakeNetwork() as Networkable)
-        .register(FakeRepository() as Repositoriable)
-    
     var registry = [String: Any]()
 
     @discardableResult
@@ -33,4 +25,14 @@ class DependencyContainer {
         }
         return dependency
     }
+}
+
+extension DependencyContainer {
+    static let live = DependencyContainer()
+        .register(Network() as Networkable)
+        .register(Repository() as Repositoriable)
+    
+    static let mock = DependencyContainer()
+        .register(FakeNetwork() as Networkable)
+        .register(FakeRepository() as Repositoriable)
 }
